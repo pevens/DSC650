@@ -7,7 +7,7 @@ import happybase
 spark = SparkSession.builder.appName("MLlib IQ ML Prediction").enableHiveSupport().getOrCreate()
 
 # Step 2: Load the data from the Hive table 'iq' into a Spark DataFrame
-iq_df = spark.sql("SELECT country, literacy_rate, nobel_prices, hdi_2021, mean_years_schooling_2021,gni_2021, population_2023, average_iq FROM iq")
+iq_df = spark.sql("SELECT literacy_rate, nobel_prices, hdi_2021, mean_years_schooling_2021,gni_2021, population_2023, average_iq FROM iq")
 
 # Step 3: Handle null values by either dropping or filling them
 iq_df = iq_df.na.drop()  # Drop rows with null values
